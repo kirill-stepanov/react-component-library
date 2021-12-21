@@ -4,7 +4,7 @@ import {
   Container,
   ContainerInput,
   ContainerLabel,
-} from './Input.styled';
+} from './Input.styles';
 
 export default function Input({ placeholder, label }) {
 

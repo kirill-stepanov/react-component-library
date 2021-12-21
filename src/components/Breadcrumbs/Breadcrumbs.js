@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types'
+
 import BreadcrumbsArrow from '../../assets/icons/breadcrumbs-arrow'
 
 import {
@@ -8,9 +10,14 @@ import {
   ListItemLink,
   ListItemText,
   ListItemIcon,
-} from './Breadcrumbs.styled';
+} from './Breadcrumbs.styles';
 
 export default function Breadcrumbs({ breadcrumbs }) {
+
+  Breadcrumbs.propTypes = {
+    breadcrumbs: PropTypes.array,
+  }
+
   return (
     <List>
       {

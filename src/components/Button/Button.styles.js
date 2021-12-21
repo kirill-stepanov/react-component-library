@@ -11,7 +11,6 @@ export const ButtonContainer = styled.button`
   font-size: 14px;
   line-height: 22px;
   color: #FFFFFF;
-  transition: all 0.2s ease-out;
 
   ${(props) => props.size === 'small' && `
     padding: 6px 10px;
@@ -22,7 +21,7 @@ export const ButtonContainer = styled.button`
   `};
   
   background: #1A6AFF;
-  background: ${(props) => props.variant == 'dark' && '#222222'};
+  background: ${(props) => props.variant === 'dark' && '#222222'};
 
   ${(props) => props.disabled && `
     cursor: not-allowed;
@@ -31,6 +30,6 @@ export const ButtonContainer = styled.button`
 
   &:not(${(props) => !props.disabled}):hover {
     background: #1351C2;
-    background: ${(props) => props.variant == 'dark' && '#000000'};
+    background: ${(props) => props.variant === 'dark' && '#000000'};
   };
 `

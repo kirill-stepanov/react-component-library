@@ -12,18 +12,13 @@ export const ListItemLink = styled.a`
   font-family: 'ProximaNova-Regular';
   font-size: 14px;
   line-height: 22px;
-  color: #888888;
   text-decoration: none;
-  cursor: auto;
+  color: #222222;
+  cursor: pointer;
+  font-family: 'ProximaNova-Medium';
 
-  &:not(:last-child) {
-    color: #222222;
-    cursor: pointer;
-    font-family: 'ProximaNova-Medium';
-
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 `
 
