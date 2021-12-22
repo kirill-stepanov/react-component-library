@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const ButtonContainer = styled.button`
-  padding: 9px 15px;
   display: flex;
   align-items: center;
   border: none;
@@ -11,14 +10,10 @@ export const ButtonContainer = styled.button`
   font-size: 14px;
   line-height: 22px;
   color: #FFFFFF;
-
-  ${(props) => props.size === 'small' && `
-    padding: 6px 10px;
-  `};
-
-  ${(props) => props.size === 'large' && `
-    padding: 13px 25px;
-  `};
+  
+  padding: 9px 15px;
+  padding: ${(props) => props.size === 'small' && '6px 10px'};
+  padding: ${(props) => props.size === 'large' && '13px 25px'};
   
   background: #1A6AFF;
   background: ${(props) => props.variant === 'dark' && '#222222'};

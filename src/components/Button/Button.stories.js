@@ -1,5 +1,7 @@
 import React from 'react';
 
+// import { Button as ButtonComponent }  from './Button';
+// import * as Button from './Button';
 import Button from './Button';
 
 export default {
@@ -35,9 +37,10 @@ export default {
   },
 };
 
-const Template = args => <Button {...args} />;
+const Template = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
+
 Default.args = {
   text: 'Button',
 };

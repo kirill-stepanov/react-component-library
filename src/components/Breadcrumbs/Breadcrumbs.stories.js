@@ -8,6 +8,7 @@ export default {
   argTypes: {
     breadcrumbs: {
       type: { required: true },
+      description: 'Here you can pass an array of objects with a link field (if it is a link) or without (if it is a paragraph)',
       defaultValue: [
         {
           id: 1,
@@ -24,12 +25,11 @@ export default {
           text: 'Breadcrumbs',
         },
       ],
-      // description: 'Test description',
     },
   },
 };
 
-const Template = args => <Breadcrumbs {...args} />;
+const Template = (args) => <Breadcrumbs {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

@@ -12,7 +12,7 @@ export default {
   },
 };
 
-const Template = args => <Paragraph {...args} />;
+const Template = (args) => <Paragraph {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

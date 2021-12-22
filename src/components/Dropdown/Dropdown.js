@@ -1,36 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+import { useRef } from 'react';
+
+import PropTypes from 'prop-types'
 
 import {
-  DropdownContainer,
-  DropdownToggle,
-  DropdownMenu,
- } from './Dropdown.styles';
+  Container,
+  ContainerToggle,
+  ContainerMenu,
+} from './Dropdown.styles' 
 
-export default function Dropdown({
-  // isOpen,
-  filter,
-  isFilterSelected,
+export default function Dropdown({ 
   dropdownToggle,
   dropdownMenu,
-}) {
+ }) {
+
+  Dropdown.propTypes = {
+    dropdownToggle: PropTypes.object,
+    dropdownMenu: PropTypes.object,
+  }
+
+  const ref = useRef()
 
   const [isOpen, setIsOpen] = useState(false)
 
+  const toggle = () => setIsOpen(!isOpen)
+
+  useEffect(() => {
+    function toggle(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", toggle);
+    return () => {
+      document.removeEventListener("mousedown", toggle);
+    };
+  }, [ref]);
+
   return (
-    <DropdownContainer>
-      <DropdownToggle
-        isOpen={isOpen}
-        filter={filter}
-        isFilterSelected={isFilterSelected}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {dropdownToggle}
-      </DropdownToggle>
+    <Container ref={ref} >
+      <ContainerToggle onClick={toggle}>{dropdownToggle}</ContainerToggle>
 
       {
-        isOpen && <DropdownMenu>{dropdownMenu}</DropdownMenu>
+        isOpen && <ContainerMenu>{dropdownMenu}</ContainerMenu>
       }
-    </DropdownContainer>
+    </Container>
   );
 }

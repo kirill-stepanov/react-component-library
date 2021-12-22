@@ -30,7 +30,7 @@ export default {
   },
 };
 
-const Template = args => <Menu {...args} />;
+const Template = (args) => <Menu {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
