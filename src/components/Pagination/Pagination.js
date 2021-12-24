@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types'
 
+import PaginationArrowLeft from '../../assets/icons/pagination-arrow-left'
+import PaginationArrowRight from '../../assets/icons/pagination-arrow-right'
+
 import {
-  // Container,
-  // CardImage,
-  // CardTitle,
-  // CardInfo,
-  // CardInfoText,
+  PaginationList,
+  PaginationListItem,
+  PaginationListItemText,
 } from './Pagination.styles';
 
 const Pagination = (props) => {
   const {
-    itemsTotalCount = 20,
-    itemsPerPage = 4,
+    // itemsTotalCount = 20,
+    // itemsPerPage = 4,
   } = props;
 
   const data = [
@@ -38,42 +39,70 @@ const Pagination = (props) => {
     {"id":19,"name":"Melisent","email":"modayi@loc.gov"},
     {"id":20,"name":"Darbee","email":"djanecekj@stumbleupon.com"}
   ]
-  
-  const pagesCount = Math.ceil(itemsTotalCount / itemsPerPage);
-  if (pagesCount === 1) return null;
 
-  const [dataPerPage, setDataPerPage] = useState(data.slice(0, itemsPerPage))
+  const itemsTotalCount = 20
+
+  const itemsPerPage = 4
+
+  const pagesCount = Math.ceil(itemsTotalCount / itemsPerPage);
+
   const [currentPage, setCurrentPage] = useState(1)
 
-//   function NewArray(size) {
-//     let array = [];
-//     for (let i = 1; i <= size; i++) {
-//       array.push(i)
-//     }
-//     return array;
-//   }
+  let array = []
 
-  // const pagginationArray = NewArray(5);
+  for (let i = 1; i <= pagesCount; i++) {
+    array.push(i)
+  }
 
+  let newData = data.slice((currentPage-1)*itemsPerPage, currentPage*itemsPerPage)
+
+  const increaseCurrentPage = () => {
+    if(currentPage !== 1) setCurrentPage(currentPage - 1)
+  }
+
+  const decreaseCurrentPage = () => {
+    if(currentPage !== pagesCount) setCurrentPage(currentPage + 1)
+  }
 
   return (
-    <div>
+    <>
       {
-        data.map((user) => (
-          <div key={user.id}>
-            {user.id}
-            {user.name}
+        newData.map((user) => (
+          <div
+            key={user.id}
+            style={{
+              fontFamily: 'ProximaNova-Medium',
+              fontSize: '14px',
+              lineHeight: '22px',
+            }}
+          >
+            {user.id}-{user.name}
           </div>
         ))
       }
 
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-evenly',
-      }}>
-        ergerg
-      </div>
-    </div>
+      <PaginationList>
+        <PaginationListItem onClick={increaseCurrentPage}>
+          <PaginationArrowLeft />
+        </PaginationListItem>
+
+        {
+          array.map((item, index) => 
+            <PaginationListItem
+              key={index}
+              isActive={currentPage === item}
+              onClick={() => setCurrentPage(item)}
+            >
+              <PaginationListItemText>{item}</PaginationListItemText>
+            </PaginationListItem>
+          )
+        }
+
+        <PaginationListItem onClick={decreaseCurrentPage}>
+          <PaginationArrowRight />
+        </PaginationListItem>
+      </PaginationList>
+    </>
   );
 }
 
