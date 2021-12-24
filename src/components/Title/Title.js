@@ -9,7 +9,11 @@ import {
   Heading6,  
  } from './Title.styles';
 
-export default function Title({ tag, text }) {
+const Title = (props) => {
+  const {
+    tag,
+    text,
+  } = props
 
   const heading = {
     'h1': <Heading1>{text}</Heading1>,
@@ -22,3 +26,5 @@ export default function Title({ tag, text }) {
 
   return heading[tag]
 }
+
+export default Title

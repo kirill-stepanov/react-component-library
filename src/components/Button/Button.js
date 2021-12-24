@@ -6,14 +6,15 @@ import ButtonArrowRight from '../../assets/icons/button-arrow-right';
 
 import { ButtonContainer } from './Button.styles';
 
-export default function Button({
-  text,
-  disabled = false,
-  variant = 'primary',
-  size = 'medium',
-  leftIcon,
-  rightIcon,
-}) {
+const Button = (props) => {
+  const {
+    text,
+    disabled = false,
+    variant = 'primary',
+    size = 'medium',
+    leftIcon,
+    rightIcon,
+  } = props
 
   Button.propTypes = {
     text: PropTypes.string,
@@ -41,3 +42,5 @@ export default function Button({
     </ButtonContainer>
   );
 }
+
+export default Button

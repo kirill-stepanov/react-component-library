@@ -10,10 +10,10 @@ import {
   ContainerMenu,
 } from './Dropdown.styles' 
 
-export default function Dropdown({ 
+const Dropdown = ({ 
   dropdownToggle,
   dropdownMenu,
- }) {
+ }) => {
 
   Dropdown.propTypes = {
     dropdownToggle: PropTypes.object,
@@ -49,3 +49,5 @@ export default function Dropdown({
     </Container>
   );
 }
+
+export default Dropdown

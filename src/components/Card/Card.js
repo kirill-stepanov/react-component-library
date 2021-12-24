@@ -2,6 +2,8 @@ import React from 'react';
 
 import Star from '../../assets/icons/star'
 
+import PropTypes from 'prop-types'
+
 import {
   Container,
   CardImage,
@@ -10,18 +12,35 @@ import {
   CardInfoText,
 } from './Card.styles';
 
-export default function Card({  }) {
+const Card = (props) => {
+  const {
+    image = 'https://images.ctfassets.net/hrltx12pl8hq/3MbF54EhWUhsXunc5Keueb/60774fbbff86e6bf6776f1e17a8016b4/04-nature_721703848.jpg?fit=fill&w=480&h=270',
+    title = 'Central apartment Barcelona',
+    rating = '9.6',
+    hotelType = 'Apartment',
+  } = props
+
+  Card.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    rating: PropTypes.string,
+    hotelType: PropTypes.string,
+  }
+
+
   return (
     <Container>
-      <CardImage src={'https://img.theculturetrip.com/x/smart/wp-content/uploads/2019/04/spain--leoks_shutterstock.jpg'} alt={'Hotel name'} />
+      <CardImage src={image} alt={title} />
 
-      <CardTitle>Central apartment Barcelona</CardTitle>
+      <CardTitle>{title}</CardTitle>
 
       <CardInfo>
-        <Star /> 8,9
+        <Star /> {rating}
 
-        <CardInfoText>Apartment</CardInfoText>
+        <CardInfoText>{hotelType}</CardInfoText>
       </CardInfo>
     </Container>
   );
 }
+
+export default Card

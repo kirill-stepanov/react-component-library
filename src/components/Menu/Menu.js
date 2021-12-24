@@ -6,7 +6,9 @@ import {
   ListItemText,
  } from './Menu.styles';
 
-export default function Menu({ items }) {
+const Menu = (props) => {
+  const { items } = props
+  
   const [activeType, setActiveType] = useState(items[0].id)
 
   return (
@@ -27,3 +29,5 @@ export default function Menu({ items }) {
     </List>
   );
 }
+
+export default Menu

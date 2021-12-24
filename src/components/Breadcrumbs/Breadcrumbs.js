@@ -12,7 +12,8 @@ import {
   ListItemIcon,
 } from './Breadcrumbs.styles';
 
-export default function Breadcrumbs({ breadcrumbs }) {
+const Breadcrumbs = (props) => {
+  const { breadcrumbs } = props
 
   Breadcrumbs.propTypes = {
     breadcrumbs: PropTypes.array,
@@ -50,3 +51,5 @@ export default function Breadcrumbs({ breadcrumbs }) {
     </List>
   );
 }
+
+export default Breadcrumbs

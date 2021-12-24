@@ -6,7 +6,11 @@ import {
   ContainerLabel,
 } from './Input.styles';
 
-export default function Input({ placeholder, label }) {
+const Input = (props) => {
+  const {
+    label,
+    placeholder,
+  } = props
 
   return (
     <Container>
@@ -16,3 +20,5 @@ export default function Input({ placeholder, label }) {
     </Container>
   );
 }
+
+export default Input

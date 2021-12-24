@@ -6,7 +6,9 @@ import {
   CheckboxContainer
  } from './Checkbox.styles';
 
-export default function Checkbox({ size }) {
+const Checkbox = (props) => {
+  const { size } = props
+
   const [active, setActive] = useState(false)
 
   return (
@@ -19,3 +21,5 @@ export default function Checkbox({ size }) {
     </CheckboxContainer>
   );
 }
+
+export default Checkbox
