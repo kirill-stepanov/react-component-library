@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types'
 
@@ -13,8 +13,8 @@ import {
 
 const Pagination = (props) => {
   const {
-    // itemsTotalCount = 20,
-    // itemsPerPage = 4,
+    itemsTotalCount = 20,
+    itemsPerPage = 4,
   } = props;
 
   const data = [
@@ -40,9 +40,10 @@ const Pagination = (props) => {
     {"id":20,"name":"Darbee","email":"djanecekj@stumbleupon.com"}
   ]
 
-  const itemsTotalCount = 20
-
-  const itemsPerPage = 4
+  Pagination.propTypes = {
+    itemsTotalCount: PropTypes.number,
+    itemsPerPage: PropTypes.number,
+  }
 
   const pagesCount = Math.ceil(itemsTotalCount / itemsPerPage);
 
